@@ -1,11 +1,16 @@
 class Genre
+    extend Findable
     attr_accessor :artists, :name, :url, :songs
-    $genres = []
+    @@genres = []
     def initialize
-        $genres << self
+        @@genres << self
     end
     
-    def reset_all_genres
-        $genres = []
+    def reset_all
+        @@genres.clear
+    end
+    
+    def url
+       self.name.downcase.gsub(' ', '-') + '.html' 
     end
 end
