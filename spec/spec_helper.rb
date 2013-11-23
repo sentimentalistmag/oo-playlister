@@ -1,6 +1,7 @@
 require_relative '../config/environment'
 
 Dir["./spec/support/**/*.rb"].sort.each {|f| require f}
+Dir["./app/models/*.rb"].each{ |f| require f}
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
