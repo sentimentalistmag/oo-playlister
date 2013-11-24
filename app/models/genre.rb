@@ -6,7 +6,7 @@ class Genre
         @@genres << self
     end
     
-    def reset_all
+    def self.reset_all
         @@genres.clear
     end
     

@@ -19,6 +19,10 @@ class Song
        @@songs.count 
     end
     
+    def self.all
+       @@songs 
+    end
+    
     def url
        self.name.gsub(' ', '-').downcase + '.html' 
     end

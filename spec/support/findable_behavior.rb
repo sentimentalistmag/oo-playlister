@@ -1,6 +1,7 @@
 shared_examples "findable" do
   it 'finds an object by name' do
     subject.name = "Find Me"
+    puts  subject.class.find_by_name('Find Me')
     subject.class.find_by_name('Find Me').should eq(subject)
   end
 
