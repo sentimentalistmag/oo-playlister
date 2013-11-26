@@ -8,9 +8,12 @@ class Artist
     #Instance methods 
     
     def initialize 
-        @@artists << self 
+        self.name = '' 
         self.songs = []
         self.genres = []
+        
+        @@artists << self
+        
         #puts @@artists
     end
     
@@ -26,16 +29,22 @@ class Artist
     def add_songs(songs)
         puts songs
         [songs].flatten.each do |song|
-           parts = song.name.split(" - ")
+            parts = song.name.split(" - ")
+            puts 'song.name ' 
+            puts song.name
+            puts 'parts ' 
+            puts parts
+            artist = Artist.new
+            artist.name = parts.first
     
-          artist = Artist.new
-          artist.name = parts.first
+            song = Song.new
+            song.name = parts.last
+            song.artist = artist
     
-          song = Song.new
-          song.name = parts.last
-          song.artist = artist
-    
-          self.songs << song
+            self.songs << song
+            
+            puts self.songs
+            puts self.songs.count
         end
     end
     

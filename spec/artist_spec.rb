@@ -45,8 +45,10 @@ describe Artist do
     end
 
     it "knows how many songs it has" do
-      artist.add_songs([song, Song.new])
-      artist.songs.count.should eq(2)
+        puts 'song is '
+        puts song
+        artist.add_songs([song, Song.new])
+        artist.songs.count.should eq(2)
     end
   end
 

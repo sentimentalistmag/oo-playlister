@@ -4,11 +4,18 @@ class Song
     @@songs = []
     
     def initialize
-       @@songs << self 
+        @@songs << self 
+        self.name = ''
+        self.artist = Artist.new
+        self.genre = Genre.new
     end
     #'Miley Cyrus - We Can\'t Stop [Pop]'
     def to_s
        "#{self.artist.name} - #{self.name} [#{self.genre.name.capitalize}]"    
+    end
+    
+    def url
+       self.name.gsub(' ', '-').downcase + '.html' 
     end
     
     def self.reset_all
@@ -23,7 +30,5 @@ class Song
        @@songs 
     end
     
-    def url
-       self.name.gsub(' ', '-').downcase + '.html' 
-    end
+   
 end

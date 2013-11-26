@@ -3,6 +3,9 @@ class Genre
     attr_accessor :artists, :name, :url, :songs
     @@genres = []
     def initialize
+        self.name = ''
+        self.artists = []
+        self.songs = []
         @@genres << self
     end
     
@@ -12,5 +15,13 @@ class Genre
     
     def url
        self.name.downcase.gsub(' ', '-') + '.html' 
+    end
+    
+    def self.all
+       @@genres 
+    end
+    
+    def self.count 
+        return @@genres.count
     end
 end
