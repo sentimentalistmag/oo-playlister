@@ -28,6 +28,7 @@ describe Artist do
     end
 
     it "can count how many artists have been created" do
+      Artist.reset_all #had to reset the artists otherwise the count maybe incorrect if the tests are run in random order and artsts are created
       Artist.new
       Artist.count.should eq(1)
     end

@@ -24,8 +24,10 @@ class Artist
             self.songs = []   
         end
         self.songs.push song
+        self.genres.push song.genre
     end
-    
+    #this is wacky, are we being passed in songs with their values popuated
+    #or is it just song titles in an array and we have to parse values here
     def add_songs(songs)
         puts songs
         [songs].flatten.each do |song|
