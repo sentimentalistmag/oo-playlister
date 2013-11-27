@@ -25,6 +25,8 @@ describe Genre do
       song = Song.new
       song.genre = genre
     end
+    print ' In test the count is '
+    puts genre.songs.count
     genre.songs.count.should eq(3)
   end
 
@@ -55,6 +57,7 @@ describe Genre do
 
   describe "Class methods" do
     it "keeps track of all known genres" do
+        Genre.reset_all
       Genre.count.should eq(0)
       rap = Genre.new.tap{|g| g.name = 'rap'}
       electronica = Genre.new.tap{|g| g.name = 'electronica'}
@@ -64,6 +67,7 @@ describe Genre do
     end
 
     it "can reset genres" do
+        Genre.reset_all
       genres = (1..5).collect do |i|
         Genre.new
       end

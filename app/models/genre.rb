@@ -9,13 +9,19 @@ class Genre
         @@genres << self
     end
     
-    def self.reset_all
-        @@genres.clear
-    end
-    
+      
     def url
        self.name.downcase.gsub(' ', '-') + '.html' 
     end
+    
+    def add_song(song)
+       songs.push song 
+    end
+    
+    def self.reset_all
+        @@genres.clear
+    end
+  
     
     def self.all
        @@genres 

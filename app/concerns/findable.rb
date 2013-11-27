@@ -12,7 +12,7 @@ module Findable
     
     def create_by_name(name)
        self.new.tap {|thing| thing.name = name}
-        #self
+       
     end
     
   

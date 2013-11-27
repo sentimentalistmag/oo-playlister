@@ -25,12 +25,27 @@ class Artist
         end
         self.songs.push song
         self.genres.push song.genre
+        puts song.genre
+        genre = Genre.find_by_name song.genre
+        if genre == nil
+            puts 'Genre is nil '
+             Genre.create_by_name song.genre
+             genre = Genre.find_by_name song.genre
+            print 'Genre is not nil now '
+            #pp genre
+        end
+        genre.artists.push self
+        genre.songs.push song
+        pp genre
+        print 'Song count is '
+        puts genre.songs.count
     end
     #this is wacky, are we being passed in songs with their values popuated
     #or is it just song titles in an array and we have to parse values here
     def add_songs(songs)
         puts songs
         [songs].flatten.each do |song|
+            
             parts = song.name.split(" - ")
             puts 'song.name ' 
             puts song.name
@@ -42,6 +57,7 @@ class Artist
             song = Song.new
             song.name = parts.last
             song.artist = artist
+            #find genre by substringing out the [] part and then find the genre Genre.find_by_name name and add the song to it
     
             self.songs << song
             

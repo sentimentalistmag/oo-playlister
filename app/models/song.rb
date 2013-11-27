@@ -1,6 +1,6 @@
 class Song
     extend Findable
-    attr_accessor :name, :genre, :artist
+    attr_accessor :name, :artist
     @@songs = []
     
     def initialize
@@ -14,6 +14,16 @@ class Song
        "#{self.artist.name} - #{self.name} [#{self.genre.name.capitalize}]"    
     end
     
+    def genre
+        @genre
+    end
+    
+    def genre=(genre)
+        @genre = genre
+        genre.songs.push self
+
+    end
+        
     def url
        self.name.gsub(' ', '-').downcase + '.html' 
     end
