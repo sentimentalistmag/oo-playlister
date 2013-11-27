@@ -1,6 +1,6 @@
 class Genre
     extend Findable
-    attr_accessor :artists, :name, :url, :songs
+    attr_accessor  :name, :url, :songs
     @@genres = []
     def initialize
         self.name = ''
@@ -16,6 +16,16 @@ class Genre
     
     def add_song(song)
        songs.push song 
+    end
+    
+    def artists
+        @artists
+        
+    end
+    
+    def artists=(artists)
+        @artists=artists
+        @artists.uniq!
     end
     
     def self.reset_all

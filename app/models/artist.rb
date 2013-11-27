@@ -25,7 +25,15 @@ class Artist
         end
         self.songs.push song
         self.genres.push song.genre
-        song.genre.artists.push self
+        artists_found = 0
+        song.genre.artists.each do |artist|
+            if artist== self
+               artists_found +=1 
+            end
+        end
+        if artists_found == 0
+            song.genre.artists.push self
+        end
        
     end
     #this is wacky, are we being passed in songs with their values popuated
