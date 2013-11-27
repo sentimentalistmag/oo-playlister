@@ -25,6 +25,7 @@ class Artist
         end
         self.songs.push song
         self.genres.push song.genre
+        song.genre.artists.push self
         puts song.genre
         genre = Genre.find_by_name song.genre
         if genre == nil
