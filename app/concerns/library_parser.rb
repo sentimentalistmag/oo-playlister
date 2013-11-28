@@ -8,7 +8,7 @@ class LibraryParser
     end
     def parse_filename(filename)
         file_parts =  /([a-z\s]*).*\-\s*([0-9a-z\s\(\)\.\+\&\'\,]*)\s*\[([a-z\-]*)/i.match(filename)
-        [file_parts[1], file_parts[2], file_parts[3]] 
+        [file_parts[1].strip, file_parts[2].strip, file_parts[3].strip] 
     end
     
     def build_song(*parts)
