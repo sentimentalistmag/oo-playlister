@@ -5,6 +5,7 @@ describe "LibraryParser" do
 
   it 'will parse the library' do
     LibraryParser.parse
+    
     Artist.all.should_not be_empty
     Genre.all.should_not be_empty
     Song.all.should_not be_empty

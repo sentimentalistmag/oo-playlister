@@ -20,7 +20,9 @@ class Song
     
     def genre=(genre)
         @genre = genre
-        genre.songs.push self
+        if genre.songs !=nil
+            genre.songs.push self
+        end
 
     end
         
