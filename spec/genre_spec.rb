@@ -25,8 +25,7 @@ describe Genre do
       song = Song.new
       song.genre = genre
     end
-    print ' In test the count is '
-    puts genre.songs.count
+    
     genre.songs.count.should eq(3)
   end
 

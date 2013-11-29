@@ -12,6 +12,10 @@ describe "LibraryParser" do
   end
 
   it 'loads files from a directory' do
+    parser.reset_all
+    parser.call
+    
+    #figure out why parser.files does not work for me, I'm missing some singleton knowledge
     parser.files.should_not be_empty
     parser.files.size.should eq(99)
   end
@@ -25,8 +29,9 @@ describe "LibraryParser" do
 
   it 'builds a song based on song parts' do
     parts = ['Action Bronson', 'Larry Csonka', 'indie']
+    Genre.reset_all
     song = parser.build_song(*parts)
-
+   
     Artist.find_by_name(parts[0]).should eq(song.artist)
     Song.find_by_name(parts[1]).should eq(song)
     Genre.find_by_name(parts[2]).should eq(song.genre)

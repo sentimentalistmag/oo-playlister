@@ -16,8 +16,8 @@ module Findable
     end
     
   
-    def ==(thing)
-       true
+    #def ==(thing)
+       
         #return thing.name == self.name 
-    end
+   # end
 end

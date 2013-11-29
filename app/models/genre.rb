@@ -40,4 +40,6 @@ class Genre
     def self.count 
         return @@genres.count
     end
+    
+    
 end
